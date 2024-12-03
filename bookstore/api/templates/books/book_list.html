@@ -1,0 +1,15 @@
+<!-- api/templates/books/book_list.html -->
+<h1>Books</h1>
+
+<!-- Filter form -->
+<form method="get">
+    {{ filter.form.as_p }}  <!-- Render the filter form -->
+    <button type="submit">Filter</button>
+</form>
+
+<!-- List of Books -->
+<ul>
+    {% for book in filter.qs %}
+        <li>{{ book.title }} by {{ book.author }} ({{ book.genre }})</li>
+    {% endfor %}
+</ul>
